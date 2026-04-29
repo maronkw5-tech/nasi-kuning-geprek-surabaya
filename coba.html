@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Nasi Kuning & Geprek Surabaya - Rasa yang Bicara. Nasi kuning legendaris dengan ayam bakar, bumbu merah, dan bumbu rujak.">
+    <meta name="keywords" content="nasi kuning surabaya, geprek surabaya, kuliner surabaya">
+    <meta name="author" content="Nasi Kuning & Geprek Surabaya">
+    <meta property="og:title" content="Nasi Kuning & Geprek | Rasa yang Bicara">
+    <meta property="og:description" content="Nasi Kuning Legendaris Surabaya. Pesan sekarang via WhatsApp atau bayar pakai QRIS!">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#e67e22">
+    <title>Nasi Kuning & Geprek | Rasa yang Bicara - Surabaya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Plus Jakarta Sans','Segoe UI',system-ui,sans-serif;background:#fffbf0;color:#2d2f36;line-height:1.6;overflow-x:hidden}
+
+        /* NAVBAR */
+        nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:0.8rem 5%;display:flex;justify-content:space-between;align-items:center;position:fixed;width:100%;top:0;left:0;box-shadow:0 4px 30px rgba(0,0,0,0.06);z-index:1000;transition:all .3s}
+        nav.scrolled{padding:0.6rem 5%;box-shadow:0 2px 20px rgba(0,0,0,0.1)}
+        .logo{font-size:1.35rem;font-weight:900;display:flex;align-items:center;gap:6px}
+        .logo-icon{width:38px;height:38px;background:linear-gradient(135deg,#e67e22,#f39c12);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#fff;box-shadow:0 4px 12px rgba(230,126,34,0.3)}
+        .logo-text{background:linear-gradient(135deg,#d35400,#f39c12);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .logo-sub{font-size:0.55rem;font-weight:600;color:#b0b0b0;letter-spacing:2px;text-transform:uppercase;display:block;line-height:1;margin-top:-2px}
+        .nav-right{display:flex;align-items:center;gap:10px}
+        .nav-link{display:none;padding:8px 14px;font-size:0.8rem;font-weight:600;color:#666;text-decoration:none;border-radius:30px;transition:.2s}
+        .nav-link:hover{color:#e67e22;background:#fff5e6}
+        @media(min-width:768px){.nav-link{display:inline-block}}
+        .cart-icon{background:linear-gradient(135deg,#e67e22,#f39c12);color:#fff;padding:8px 16px;border-radius:40px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 15px rgba(230,126,34,0.35);transition:all .2s;font-size:0.85rem;border:none;position:relative}
+        .cart-icon:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(230,126,34,0.45)}
+        .cart-badge{background:#e74c3c;color:#fff;font-size:0.65rem;font-weight:800;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:absolute;top:-5px;right:-5px;border:2px solid #fff;transition:transform .3s}
+        .cart-badge.bounce{animation:badgeBounce .4s ease}
+        @keyframes badgeBounce{0%{transform:scale(1)}40%{transform:scale(1.4)}100%{transform:scale(1)}}
+
+        /* HERO */
+        .hero{margin-top:68px;padding:80px 5% 90px;background:linear-gradient(160deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.72) 100%),url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1400&q=80');background-size:cover;background-position:center 30%;color:#fff;text-align:center;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 30% 50%,rgba(243,156,18,.12) 0%,transparent 60%);animation:heroGlow 8s ease-in-out infinite alternate}
+        @keyframes heroGlow{0%{transform:translate(0,0) scale(1)}100%{transform:translate(5%,3%) scale(1.1)}}
+        .hero-content{position:relative;z-index:2;max-width:700px;margin:0 auto}
+        .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(243,156,18,.2);border:1px solid rgba(243,156,18,.4);padding:6px 18px;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;color:#f9ca24;backdrop-filter:blur(10px)}
+        .hero-badge .pulse-dot{width:8px;height:8px;background:#2ecc71;border-radius:50%;animation:pulse 1.5s infinite}
+        @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+        .hero h1{font-size:2.8rem;font-weight:900;line-height:1.15;margin-bottom:16px;text-shadow:0 4px 30px rgba(0,0,0,.3)}
+        .hero h1 span{background:linear-gradient(135deg,#f9ca24,#f39c12);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .hero-tagline{font-size:1.1rem;color:rgba(255,255,255,.85);font-weight:400;margin-bottom:30px;font-style:italic}
+        .hero-stats{display:flex;justify-content:center;gap:30px;flex-wrap:wrap}
+        .hero-stat{text-align:center}
+        .hero-stat-num{font-size:1.8rem;font-weight:900;color:#f9ca24;line-height:1.2}
+        .hero-stat-label{font-size:0.7rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+        .hero-cta{margin-top:30px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+        .btn-hero-primary{background:linear-gradient(135deg,#e67e22,#f39c12);color:#fff;border:none;padding:14px 32px;border-radius:50px;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .2s;box-shadow:0 6px 20px rgba(230,126,34,.4);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+        .btn-hero-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(230,126,34,.5)}
+        .btn-hero-secondary{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.3);color:#fff;padding:12px 28px;border-radius:50px;font-weight:600;font-size:.9rem;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px;backdrop-filter:blur(10px)}
+        .btn-hero-secondary:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
+        .hero-payments{display:flex;justify-content:center;gap:12px;margin-top:20px;flex-wrap:wrap}
+        .hero-pay-badge{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:6px 16px;border-radius:30px;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:6px;backdrop-filter:blur(5px)}
+
+        /* PROMO */
+        .promo-banner{background:linear-gradient(135deg,#d35400,#e67e22,#f39c12);padding:16px 5%;text-align:center;color:#fff;font-weight:700;font-size:.9rem;position:relative;overflow:hidden}
+        .promo-banner::before{content:'';position:absolute;top:0;left:-100%;width:200%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);animation:promoShine 3s infinite}
+        @keyframes promoShine{0%{left:-100%}100%{left:100%}}
+
+        /* SECTIONS */
+        .section{padding:60px 5%}
+        .section-header{text-align:center;margin-bottom:40px}
+        .section-label{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#e67e22;margin-bottom:8px;background:#fff5e6;padding:4px 16px;border-radius:30px}
+        .section-title{font-size:2rem;font-weight:900;line-height:1.2;margin-bottom:10px;color:#1a1a2e}
+        .section-desc{font-size:.95rem;color:#888;max-width:500px;margin:0 auto}
+
+        /* WHY */
+        .why-section{background:#fff}
+        .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:1000px;margin:0 auto}
+        .why-card{text-align:center;padding:30px 20px;border-radius:24px;background:#fffbf0;border:1px solid #f5ecd7;transition:all .3s}
+        .why-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(230,126,34,.1);border-color:#f39c12}
+        .why-icon{width:60px;height:60px;background:linear-gradient(135deg,#e67e22,#f39c12);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin:0 auto 16px;box-shadow:0 6px 15px rgba(230,126,34,.25)}
+        .why-card h3{font-size:1rem;font-weight:800;margin-bottom:6px}
+        .why-card p{font-size:.8rem;color:#888;line-height:1.5}
+
+        /* MENU */
+        .menu-section{background:#fffbf0}
+        .menu-filter{display:flex;justify-content:center;gap:8px;margin-bottom:30px;flex-wrap:wrap}
+        .filter-btn{padding:8px 20px;border:2px solid #f0e3d0;background:#fff;border-radius:50px;font-weight:600;font-size:.8rem;cursor:pointer;transition:all .2s;font-family:inherit;color:#666}
+        .filter-btn.active,.filter-btn:hover{background:linear-gradient(135deg,#e67e22,#f39c12);color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(230,126,34,.3)}
+        .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+        .card{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.06);transition:all .3s ease;display:flex;flex-direction:column;border:1px solid rgba(0,0,0,.04);position:relative}
+        .card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.12)}
+        .card-badge{position:absolute;top:14px;left:14px;background:#e74c3c;color:#fff;font-size:.65rem;font-weight:800;padding:4px 12px;border-radius:30px;z-index:3;letter-spacing:.5px;text-transform:uppercase}
+        .card-img-wrap{position:relative;overflow:hidden;background:#f7f3e9}
+        .card-img{width:100%;height:200px;object-fit:cover;transition:transform .4s ease;display:block}
+        .card:hover .card-img{transform:scale(1.08)}
+        .card-body{padding:1.1rem 1.2rem 1.3rem;flex:1;display:flex;flex-direction:column}
+        .card-top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+        .card-rating{color:#f7b731;font-size:.8rem;letter-spacing:1px}
+        .card-rating-text{font-size:.7rem;color:#999;font-weight:600}
+        .card-body h3{font-size:1.05rem;font-weight:800;margin-bottom:6px;line-height:1.3}
+        .details{font-size:.75rem;color:#999;margin-bottom:10px;line-height:1.4}
+        .ulasan-singkat{background:linear-gradient(135deg,#fff8ed,#fff3dc);padding:8px 12px;border-left:3px solid #f39c12;font-size:.73rem;font-style:italic;margin-bottom:14px;border-radius:0 10px 10px 0;color:#8b6914;line-height:1.4}
+        .card-bottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
+        .price{color:#e67e22;font-weight:900;font-size:1.2rem}
+        .btn-add{background:linear-gradient(135deg,#f39c12,#e67e22);border:none;padding:10px 20px;font-weight:700;border-radius:40px;cursor:pointer;font-size:.8rem;transition:all .2s;color:#fff;white-space:nowrap;font-family:inherit;box-shadow:0 4px 12px rgba(230,126,34,.3)}
+        .btn-add:hover{transform:scale(1.05);box-shadow:0 6px 20px rgba(230,126,34,.4)}
+        .btn-add:active{transform:scale(.97)}
+        .btn-add.added{background:linear-gradient(135deg,#27ae60,#2ecc71);box-shadow:0 4px 12px rgba(39,174,96,.3)}
+
+        /* PAYMENT STRIP */
+        .payment-strip{background:#fff;padding:30px 5%;border-top:1px solid #f0e3d0;border-bottom:1px solid #f0e3d0}
+        .payment-strip-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+        .payment-method{display:flex;align-items:center;gap:12px;padding:16px 24px;background:#fffbf0;border:1px solid #f5ecd7;border-radius:18px;transition:all .3s;cursor:default}
+        .payment-method:hover{border-color:#f39c12;box-shadow:0 4px 15px rgba(230,126,34,.08)}
+        .payment-method-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+        .pm-qris{background:linear-gradient(135deg,#2c3e50,#34495e);color:#fff}
+        .pm-wa{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff}
+        .pm-cash{background:linear-gradient(135deg,#f39c12,#e67e22);color:#fff}
+        .payment-method h4{font-size:.85rem;font-weight:800;margin-bottom:2px}
+        .payment-method p{font-size:.7rem;color:#999;font-weight:500}
+
+        /* TESTIMONI */
+        .testi-section{background:#fff}
+        .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1000px;margin:0 auto}
+        .testi-card{background:#fffbf0;border:1px solid #f5ecd7;border-radius:20px;padding:24px;transition:all .3s}
+        .testi-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(230,126,34,.08)}
+        .testi-stars{color:#f7b731;font-size:.9rem;margin-bottom:10px}
+        .testi-text{font-size:.88rem;color:#555;line-height:1.6;margin-bottom:14px;font-style:italic}
+        .testi-author{display:flex;align-items:center;gap:10px}
+        .testi-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#e67e22,#f39c12);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.9rem}
+        .testi-name{font-weight:700;font-size:.85rem}
+        .testi-role{font-size:.7rem;color:#aaa}
+
+        /* LOCATION */
+        .location-section{background:#1a1a2e;color:#fff}
+        .location-section .section-label{background:rgba(230,126,34,.15);color:#f39c12}
+        .location-section .section-title{color:#fff}
+        .location-section .section-desc{color:rgba(255,255,255,.5)}
+        .location-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:1000px;margin:0 auto;align-items:start}
+        @media(max-width:768px){.location-grid{grid-template-columns:1fr}}
+        .location-info{display:flex;flex-direction:column;gap:20px}
+        .loc-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:20px;display:flex;gap:14px;align-items:flex-start;transition:all .3s}
+        .loc-card:hover{background:rgba(255,255,255,.08);border-color:rgba(243,156,18,.3)}
+        .loc-icon{width:44px;height:44px;min-width:44px;background:linear-gradient(135deg,#e67e22,#f39c12);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+        .loc-card h4{font-size:.85rem;font-weight:700;margin-bottom:4px}
+        .loc-card p{font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.5}
+        .loc-card a{color:#f39c12;text-decoration:none;font-weight:600;font-size:.78rem;transition:.2s}
+        .loc-card a:hover{color:#f9ca24;text-decoration:underline}
+        .map-wrap{border-radius:20px;overflow:hidden;border:2px solid rgba(255,255,255,.08);box-shadow:0 10px 40px rgba(0,0,0,.3)}
+        .map-wrap iframe{width:100%;height:320px;border:none;display:block}
+        .map-link-btn{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:12px 24px;background:linear-gradient(135deg,#e67e22,#f39c12);color:#fff;border-radius:50px;text-decoration:none;font-weight:700;font-size:.85rem;transition:all .2s;box-shadow:0 4px 15px rgba(230,126,34,.3)}
+        .map-link-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(230,126,34,.4)}
+
+        /* CTA */
+        .cta-section{background:linear-gradient(135deg,#e67e22,#d35400);text-align:center;padding:50px 5%;color:#fff;position:relative;overflow:hidden}
+        .cta-section::before{content:'';position:absolute;width:300px;height:300px;background:rgba(255,255,255,.05);border-radius:50%;top:-100px;right:-50px}
+        .cta-section::after{content:'';position:absolute;width:200px;height:200px;background:rgba(255,255,255,.05);border-radius:50%;bottom:-80px;left:-30px}
+        .cta-section h2{font-size:1.8rem;font-weight:900;margin-bottom:10px;position:relative}
+        .cta-section p{font-size:.95rem;opacity:.9;margin-bottom:24px;position:relative}
+        .btn-cta{background:#fff;color:#e67e22;border:none;padding:14px 36px;border-radius:50px;font-weight:800;font-size:1rem;cursor:pointer;transition:all .2s;position:relative;font-family:inherit;box-shadow:0 6px 20px rgba(0,0,0,.15)}
+        .btn-cta:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 10px 30px rgba(0,0,0,.2)}
+
+        /* MODAL CART */
+        #cart-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:2000;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);overflow-y:auto;padding:20px 0}
+        .cart-content{background:#fff;width:92%;max-width:520px;margin:30px auto;padding:28px 24px 32px;border-radius:28px;position:relative;box-shadow:0 30px 60px rgba(0,0,0,.3);animation:slideUp .3s ease}
+        @keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+        .cart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+        .cart-header h3{font-size:1.4rem;font-weight:900;display:flex;align-items:center;gap:8px}
+        .close-cart{width:36px;height:36px;border-radius:50%;background:#f5f5f5;border:none;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;color:#666}
+        .close-cart:hover{background:#fee;color:#e74c3c}
+        .cart-item{padding:14px 0;border-bottom:1px solid #f5f0e8}
+        .item-name-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+        .item-name-row strong{font-size:.9rem}
+        .btn-batal-item{color:#e74c3c;font-size:.7rem;cursor:pointer;font-weight:600;background:none;border:none;font-family:inherit;text-decoration:underline}
+        .qty-control{display:flex;align-items:center;gap:12px}
+        .qty-btn{background:#fffbf0;border:2px solid #f5ecd7;width:32px;height:32px;border-radius:50%;font-weight:800;cursor:pointer;font-size:1rem;transition:.2s;display:flex;align-items:center;justify-content:center;font-family:inherit;color:#e67e22}
+        .qty-btn:hover{background:#e67e22;color:#fff;border-color:#e67e22}
+        .cart-total-row{font-size:1.3rem;font-weight:900;margin:20px 0 6px;text-align:right;border-top:2px dashed #f5ecd7;padding-top:16px;color:#e67e22}
+
+        /* PAYMENT SELECTOR */
+        .payment-selector{margin:16px 0 8px;padding:16px;background:#fffbf0;border:1px solid #f5ecd7;border-radius:18px}
+        .payment-selector-label{font-size:.75rem;font-weight:800;color:#888;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}
+        .payment-options{display:flex;gap:10px}
+        .payment-opt{flex:1;padding:14px 10px;border:2px solid #f0e3d0;border-radius:16px;background:#fff;cursor:pointer;transition:all .2s;text-align:center;font-family:inherit}
+        .payment-opt:hover{border-color:#f39c12}
+        .payment-opt.selected{border-color:#e67e22;background:#fff5e6;box-shadow:0 4px 12px rgba(230,126,34,.12)}
+        .payment-opt-icon{font-size:1.4rem;margin-bottom:4px}
+        .payment-opt-name{font-size:.72rem;font-weight:700;color:#333}
+        .payment-opt-desc{font-size:.6rem;color:#aaa;margin-top:2px}
+
+        /* QRIS */
+        .qris-section{display:none;margin:16px 0 0;padding:20px;background:#f8f9fa;border:2px dashed #dee2e6;border-radius:18px;text-align:center;animation:slideUp .3s ease}
+        .qris-section.show{display:block}
+        .qris-title{font-size:.85rem;font-weight:800;color:#2c3e50;margin-bottom:4px}
+        .qris-subtitle{font-size:.7rem;color:#888;margin-bottom:16px}
+        .qris-img-wrap{background:#fff;padding:12px;border-radius:16px;display:inline-block;box-shadow:0 4px 20px rgba(0,0,0,.08);border:1px solid #eee;margin-bottom:14px}
+        .qris-img{width:260px;height:auto;object-fit:contain;display:block}
+        .qris-steps{text-align:left;max-width:300px;margin:0 auto}
+        .qris-step{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;font-size:.72rem;color:#555;line-height:1.5}
+        .qris-step-num{width:22px;height:22px;min-width:22px;background:linear-gradient(135deg,#2c3e50,#34495e);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;margin-top:1px}
+        .qris-notice{background:#fff3cd;border:1px solid #ffc107;border-radius:12px;padding:10px 14px;font-size:.68rem;color:#856404;margin-top:14px;line-height:1.5}
+        .qris-notice strong{color:#664d03}
+
+        /* CHECKOUT BUTTONS */
+        .checkout-buttons{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+        .btn-checkout-wa{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;border:none;padding:14px;border-radius:16px;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 6px 20px rgba(37,211,102,.3)}
+        .btn-checkout-wa:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(37,211,102,.4)}
+        .btn-checkout-qris{background:linear-gradient(135deg,#2c3e50,#34495e);color:#fff;border:none;padding:14px;border-radius:16px;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 6px 20px rgba(44,62,80,.3)}
+        .btn-checkout-qris:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(44,62,80,.4)}
+        .btn-checkout-qris.hidden,.btn-checkout-wa.hidden{display:none}
+
+        /* FLOATING Wa */
+        .wa-float{position:fixed;bottom:24px;right:24px;z-index:900;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+        .wa-tooltip{background:#1a1a2e;color:#fff;padding:8px 14px;border-radius:12px;font-size:.75rem;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,.2);opacity:0;transform:translateY(10px) scale(.9);transition:all .3s;pointer-events:none}
+        .wa-float:hover .wa-tooltip{opacity:1;transform:translateY(0) scale(1)}
+        .wa-btn{width:58px;height:58px;background:linear-gradient(135deg,#25d366,#128c7e);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 25px rgba(37,211,102,.4);cursor:pointer;transition:all .3s;text-decoration:none;animation:waFloat 3s ease-in-out infinite}
+        .wa-btn:hover{transform:scale(1.1);box-shadow:0 10px 35px rgba(37,211,102,.5)}
+        @keyframes waFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+        .wa-btn svg{width:28px;height:28px;fill:#fff}
+
+        /* FOOTER */
+        footer{background:#1a1a2e;color:rgba(255,255,255,.4);padding:30px 5% 20px}
+        .footer-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+        .footer-brand{font-weight:800;color:#f39c12;font-size:1rem}
+        .footer-text{font-size:.72rem;line-height:1.6}
+        .footer-links{display:flex;gap:16px}
+        .footer-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.72rem;transition:.2s}
+        .footer-links a:hover{color:#f39c12}
+
+        /* ANIMATIONS */
+        .reveal{opacity:0;transform:translateY(30px);transition:all .7s ease}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+        .toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:#1a1a2e;color:#fff;padding:12px 24px;border-radius:50px;font-size:.82rem;font-weight:600;z-index:3000;opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap;box-shadow:0 8px 30px rgba(0,0,0,.3)}
+        .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+        /* RESPONSIVE */
+        @media(max-width:600px){
+            .hero h1{font-size:1.9rem}
+            .hero-stats{gap:20px}
+            .hero-stat-num{font-size:1.4rem}
+            .section-title{font-size:1.5rem}
+            .menu-grid{grid-template-columns:1fr}
+            .hero-cta{flex-direction:column;align-items:center}
+            .hero-payments{flex-direction:column;align-items:center}
+            .payment-strip-inner{gap:16px}
+            .payment-method{width:100%;max-width:280px}
+            .payment-options{flex-direction:column}
+            .qris-img{width:220px}
+            .cart-content{padding:24px 18px 28px}
+        }
+    </style>
+</head>
+<body>
+
+<nav id="navbar">
+    <div class="logo">
+        <div class="logo-icon">🍛</div>
+        <div>
+            <div class="logo-text">Nasi Kuning & Geprek</div>
+            <span class="logo-sub">Rasa yang Bicara</span>
+        </div>
+    </div>
+    <div class="nav-right">
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#lokasi" class="nav-link">Lokasi</a>
+        <a href="#testimoni" class="nav-link">Ulasan</a>
+        <button class="cart-icon" onclick="toggleCart()">🛒<span class="cart-badge" id="cart-count">0</span></button>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-content">
+        <div class="hero-badge"><span class="pulse-dot"></span>Buka Sekarang</div>
+        <h1>Nasi Kuning <span>Legendaris</span><br>Surabaya</h1>
+        <p class="hero-tagline">"Rasa yang Bicara, Lidah yang Menilai."</p>
+        <div class="hero-stats">
+            <div class="hero-stat"><div class="hero-stat-num">5K+</div><div class="hero-stat-label">Pesanan/Bulan</div></div>
+            <div class="hero-stat"><div class="hero-stat-num">4.9</div><div class="hero-stat-label">Rating Google</div></div>
+            <div class="hero-stat"><div class="hero-stat-num">10+</div><div class="hero-stat-label">Tahun Melayani</div></div>
+        </div>
+        <div class="hero-cta">
+            <a href="#menu" class="btn-hero-primary">📋 Lihat Menu</a>
+            <a href="https://maps.app.goo.gl/ZCamf8v8g7hX1Ju98" target="_blank" class="btn-hero-secondary">📍 Lokasi Kami</a>
+        </div>
+        <div class="hero-payments">
+            <div class="hero-pay-badge">📱 Bayar via QRIS</div>
+            <div class="hero-pay-badge">💬 Pesan via WhatsApp</div>
+            <div class="hero-pay-badge">💵 Cash di Tempat</div>
+        </div>
+    </div>
+</header>
+
+<div class="promo-banner">🔥 GRATIS ONGKIR radius 3km untuk pemesanan minimal Rp 30.000 — Pesan Sekarang!</div>
+
+<section class="section why-section reveal">
+    <div class="section-header">
+        <div class="section-label">Kenapa Kami?</div>
+        <h2 class="section-title">Bukan Sekadar Nasi Kuning Biasa</h2>
+        <p class="section-desc">Setiap porsi diracik dengan cinta, resep turun-temurun, dan bahan-bahan pilihan terbaik.</p>
+    </div>
+    <div class="why-grid">
+        <div class="why-card"><div class="why-icon">🌿</div><h3>Bahan Segar Setiap Hari</h3><p>Nasi kuning dimasak pagi-pagi buta agar kamu dapatkan yang paling fresh.</p></div>
+        <div class="why-card"><div class="why-icon">🔥</div><h3>Bumbu Rahasia Keluarga</h3><p>Resep bumbu merah dan rujak turun-temurun yang tidak bisa kamu temukan di tempat lain.</p></div>
+        <div class="why-card"><div class="why-icon">⚡</div><h3>Siap Antar Cepat</h3><p>Pesanan diproses kilat. Tidak perlu menunggu lama, perut lapar teratasi.</p></div>
+        <div class="why-card"><div class="why-icon">💰</div><h3>Harga Bersahabat</h3><p>Porsi puas, rasa premium, tapi harganya tetap ramah di kantong mahasiswa dan karyawan.</p></div>
+    </div>
+</section>
+
+<section class="section menu-section" id="menu">
+    <div class="section-header reveal">
+        <div class="section-label">Menu Kami</div>
+        <h2 class="section-title">Pilih Favoritmu</h2>
+        <p class="section-desc">Semua menu dimasak fresh setiap hari, mulai jam 5 pagi.</p>
+    </div>
+    <div class="menu-filter reveal">
+        <button class="filter-btn active" onclick="filterMenu('semua', this)">Semua</button>
+        <button class="filter-btn" onclick="filterMenu('nasi', this)">🍛 Nasi Kuning</button>
+        <button class="filter-btn" onclick="filterMenu('minuman', this)">🥤 Minuman</button>
+    </div>
+    <div class="menu-grid" id="menu-container"></div>
+</section>
+
+<div class="payment-strip reveal">
+    <div class="payment-strip-inner">
+        <div class="payment-method"><div class="payment-method-icon pm-qris">📱</div><div><h4>Pembayaran QRIS</h4><p>Scan & bayar — semua bank & e-wallet</p></div></div>
+        <div class="payment-method"><div class="payment-method-icon pm-wa">💬</div><div><h4>Pesan via WhatsApp</h4><p>Chat langsung, konfirmasi cepat</p></div></div>
+        <div class="payment-method"><div class="payment-method-icon pm-cash">💵</div><div><h4>Bayar Cash / Tunai</h4><p>Bayar saat pesanan tiba</p></div></div>
+    </div>
+</div>
+
+<section class="section testi-section" id="testimoni">
+    <div class="section-header reveal">
+        <div class="section-label">Testimoni</div>
+        <h2 class="section-title">Kata Mereka Tentang Kami</h2>
+        <p class="section-desc">Ribuan pelanggan puas, dan ini beberapa di antaranya.</p>
+    </div>
+    <div class="testi-grid reveal">
+        <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Nasi kuning terenak yang pernah saya coba di Surabaya. Ayam bakar bumbu merahnya juara banget, meresap sampai tulang!"</p><div class="testi-author"><div class="testi-avatar">R</div><div><div class="testi-name">Rizky Pratama</div><div class="testi-role">Pelanggan Setia</div></div></div></div>
+        <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Langganan dari kuliah sampai kerja. Porsinya konsisten besar, rasanya tidak pernah mengecewakan. Recommended!"</p><div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sari Dewi</div><div class="testi-role">Karyawan Swasta</div></div></div></div>
+        <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Bumbu rujaknya beda banget, asam manis pedasnya pas. Serundengnya juga gurih. Auto repeat order setiap minggu."</p><div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Andi Wijaya</div><div class="testi-role">Mahasiswa</div></div></div></div>
+    </div>
+</section>
+
+<section class="section location-section" id="lokasi">
+    <div class="section-header reveal">
+        <div class="section-label">Lokasi</div>
+        <h2 class="section-title">Temukan Kami di Peta</h2>
+        <p class="section-desc">Datang langsung atau pesan antar, kami siap melayani.</p>
+    </div>
+    <div class="location-grid reveal">
+        <div class="location-info">
+            <div class="loc-card"><div class="loc-icon">📍</div><div><h4>Alamat Lengkap</h4><p>Nasi Kuning & Geprek Surabaya<br>Jawa Timur, Indonesia</p><a href="https://maps.app.goo.gl/ZCamf8v8g7hX1Ju98" target="_blank">Buka di Google Maps →</a></div></div>
+            <div class="loc-card"><div class="loc-icon">🕐</div><div><h4>Jam Operasional</h4><p><strong style="color:#2ecc71;">● </strong>Senin – Sabtu: 05:00 – 14:00<br><strong style="color:#e74c3c;">● </strong>Minggu: 05:00 – 11:00<br><span style="color:rgba(255,255,255,.35);font-size:.7rem;">*Sewaktu-waktu bisa habis lebih cepat</span></p></div></div>
+            <div class="loc-card"><div class="loc-icon">📞</div><div><h4>Pemesanan via WhatsApp</h4><p>Klik tombol di bawah untuk langsung chat kami.</p><a href="https://wa.me/6285777461921" target="_blank">Chat Sekarang →</a></div></div>
+            <a href="https://maps.app.goo.gl/ZCamf8v8g7hX1Ju98" target="_blank" class="map-link-btn">🗺️ Buka Google Maps</a>
+        </div>
+        <div class="map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253840.65295089656!2d112.58352995!3d-7.2754438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf8381ac47f%3A0x3027a76e352be40!2sSurabaya%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <h2>Lapar? Langsung Pesan Aja!</h2>
+    <p>Jangan biarkan perutmu menunggu. Pesan sekarang dan rasakan kelezatan yang bikin ketagihan.</p>
+    <button class="btn-cta" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">📋 Pesan Sekarang</button>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div><div class="footer-brand">🍛 Nasi Kuning & Geprek</div><div class="footer-text">Rasa yang Bicara, Lidah yang Menilai.<br>© 2025 Semua Hak Dilindungi.</div></div>
+        <div class="footer-links"><a href="#menu">Menu</a><a href="#lokasi">Lokasi</a><a href="#testimoni">Ulasan</a><a href="https://wa.me/6285777461921" target="_blank">WhatsApp</a></div>
+    </div>
+</footer>
+
+<div class="wa-float">
+    <div class="wa-tooltip">Butuh bantuan? Chat kami! 💬</div>
+    <a href="https://wa.me/6285777461921?text=Halo%20kak,%20saya%20mau%20tanya-tanya%20dong" target="_blank" class="wa-btn">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+</div>
+
+<div class="toast" id="toast"><span>✅</span><span id="toast-text">Ditambahkan!</span></div>
+
+<div id="cart-modal">
+    <div class="cart-content">
+        <div class="cart-header"><h3>🍱 Pesanan Anda</h3><button class="close-cart" onclick="toggleCart()">✕</button></div>
+        <div id="cart-items-list" style="min-height:80px;"></div>
+        <div class="cart-total-row">Total: Rp <span id="cart-total">0</span></div>
+
+        <div class="payment-selector">
+            <div class="payment-selector-label">Metode Pembayaran</div>
+            <div class="payment-options">
+                <button class="payment-opt selected" onclick="selectPayment('wa',this)"><div class="payment-opt-icon">💬</div><div class="payment-opt-name">WhatsApp</div><div class="payment-opt-desc">Pesan & konfirmasi</div></button>
+                <button class="payment-opt" onclick="selectPayment('qris',this)"><div class="payment-opt-icon">📱</div><div class="payment-opt-name">QRIS</div><div class="payment-opt-desc">Scan & bayar dulu</div></button>
+                <button class="payment-opt" onclick="selectPayment('cash',this)"><div class="payment-opt-icon">💵</div><div class="payment-opt-name">Cash</div><div class="payment-opt-desc">Bayar di tempat</div></button>
+            </div>
+        </div>
+
+        <div class="qris-section" id="qris-section">
+            <div class="qris-title">📱 Scan QRIS untuk Pembayaran</div>
+            <div class="qris-subtitle">Gunakan aplikasi bank / e-wallet Anda</div>
+            <div class="qris-img-wrap">
+                <img src="https://z-cdn-media.chatglm.cn/files/ba95381e-3024-4d98-acb6-b7816a42a441.jpeg?auth_key=1877490965-a6a290b4fb9c444588be99c38d44fe94-0-b75336ed5db2b5faa20e4dca706991cd"
+                     alt="QRIS Payment - Nasi Kuning dan Geprek Surabaya"
+                     class="qris-img">
+            </div>
+            <div class="qris-steps">
+                <div class="qris-step"><div class="qris-step-num">1</div><div>Buka aplikasi mobile banking atau e-wallet (GoPay, OVO, DANA, ShopeePay, dll)</div></div>
+                <div class="qris-step"><div class="qris-step-num">2</div><div>Pilih menu "Scan QR" atau "QRIS"</div></div>
+                <div class="qris-step"><div class="qris-step-num">3</div><div>Arahkan kamera ke kode QR di atas</div></div>
+                <div class="qris-step"><div class="qris-step-num">4</div><div>Masukkan nominal <strong id="qris-amount" style="color:#e67e22;">Rp 0</strong> lalu konfirmasi pembayaran</div></div>
+            </div>
+            <div class="qris-notice"><strong>⚠️ Penting:</strong> Setelah membayar via QRIS, kirim bukti pembayaran ke WhatsApp kami agar pesanan segera diproses.</div>
+        </div>
+
+        <div class="checkout-buttons">
+            <button class="btn-checkout-wa" id="btn-wa" onclick="kirimWA()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Konfirmasi Pesanan via WhatsApp
+            </button>
+            <button class="btn-checkout-qris hidden" id="btn-qris-confirm" onclick="kirimWABuktiQRIS()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Sudah Bayar? Kirim Bukti via WhatsApp
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const foods = [
+        {
+            id: 1,
+            name: 'Nasi Kuning Ayam Bakar',
+            price: 18000,
+            rating: 5,
+            ulasan: 'Ayam bakarnya meresap sampai ke tulang!',
+            details: 'Nasi kuning, ayam bakar, tempe orek, mie, telur suwir, serundeng, berkedel.',
+            img: 'https://z-cdn-media.chatglm.cn/files/1ddd4876-f5f6-4a0b-8e89-254d3d915ae4.png?auth_key=1877490059-3438fc02e9d64c56bf0534973969daf6-0-95a5d5c2a6889f44bf6573d1bccaa84e',
+            category: 'nasi',
+            badge: 'Best Seller',
+            fallbackEmoji: '🍛'
+        },
+        {
+            id: 2,
+            name: 'Nasi Kuning Ayam Bakar Bumbu Merah',
+            price: 19000,
+            rating: 5,
+            ulasan: 'Pedas bumbu merahnya pas banget di lidah.',
+            details: 'Nasi Kuning, Ayam bakar bumbu merah, Berkedel, Telur suwir, Tempe orek, Mie, Telur, Serundeng.',
+            img: 'https://z-cdn-media.chatglm.cn/files/7b9db309-4b2d-4a6c-b176-974624c7a939.png?auth_key=1877490323-537b8a5edd344b92bf11d9df549ac3a9-0-8bc802cd466d13d39b11ac2178ca84e3',
+            category: 'nasi',
+            badge: '🔥 Pedas',
+            fallbackEmoji: '🌶️'
+        },
+        {
+            id: 3,
+            name: 'Nasi Kuning Ayam Goreng Bumbu Merah',
+            price: 19000,
+            rating: 4,
+            ulasan: 'Ayamnya krispi dan bumbunya melimpah.',
+            details: 'Nasi Kuning, Ayam goreng bumbu merah, Berkedel, Telur suwir, Tempe orek, Mie, Telur, Serundeng.',
+            img: 'https://z-cdn-media.chatglm.cn/files/7b9db309-4b2d-4a6c-b176-974624c7a939.png?auth_key=1877490323-537b8a5edd344b92bf11d9df549ac3a9-0-8bc802cd466d13d39b11ac2178ca84e3',
+            category: 'nasi',
+            badge: '',
+            fallbackEmoji: '🍗'
+        },
+        {
+            id: 4,
+            name: 'Nasi Kuning Ayam Bakar Bumbu Rujak',
+            price: 19000,
+            rating: 5,
+            ulasan: 'Rasa asam manis pedas rujaknya juara!',
+            details: 'Nasi Kuning, Ayam bakar bumbu rujak, Berkedel, Telur suwir, Tempe orek, Mie, Telur, Serundeng.',
+            img: 'https://z-cdn-media.chatglm.cn/files/7b9db309-4b2d-4a6c-b176-974624c7a939.png?auth_key=1877490323-537b8a5edd344b92bf11d9df549ac3a9-0-8bc802cd466d13d39b11ac2178ca84e3',
+            category: 'nasi',
+            badge: '⭐ Favorit',
+            fallbackEmoji: '♨️'
+        },
+        {
+            id: 5,
+            name: 'Nasi Kuning Ayam Goreng Bumbu Rujak',
+            price: 19000,
+            rating: 5,
+            ulasan: 'Perpaduan bumbu rujak dan ayam goreng yang unik.',
+            details: 'Nasi Kuning, Ayam goreng bumbu rujak, Berkedel, Telur suwir, Tempe orek, Mie, Telur, Serundeng.',
+            img: 'https://z-cdn-media.chatglm.cn/files/7b9db309-4b2d-4a6c-b176-974624c7a939.png?auth_key=1877490323-537b8a5edd344b92bf11d9df549ac3a9-0-8bc802cd466d13d39b11ac2178ca84e3',
+            category: 'nasi',
+            badge: '',
+            fallbackEmoji: '🥘'
+        },
+        {
+            id: 6,
+            name: 'Nasi Kuning Special Ayam Goreng',
+            price: 18000,
+            rating: 5,
+            ulasan: 'Porsi kenyang, rasa tenang.',
+            details: 'Nasi Kuning, Ayam goreng, Berkedel, Telur suwir, Tempe orek, Mie, Telur, Serundeng.',
+            img: 'https://z-cdn-media.chatglm.cn/files/69932b6f-5000-411e-808d-550b75be44c9.png?auth_key=1877490594-5d88bed0a1f34d2796b31571c742a8ee-0-c47644eaef11a4eeba49866654bb4eca',
+            category: 'nasi',
+            badge: '✨ Special',
+            fallbackEmoji: '🍱'
+        },
+        {
+            id: 7,
+            name: 'Es Jeruk Peras',
+            price: 8000,
+            rating: 4,
+            ulasan: 'Segar sekali, pakai jeruk asli.',
+            details: 'Es Jeruk Peras, Jeruk Asli.',
+            img: 'https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=600&h=400&q=80',
+            category: 'minuman',
+            badge: '',
+            fallbackEmoji: '🍊'
+        },
+        {
+            id: 8,
+            name: 'Es Jeruk Manis',
+            price: 8000,
+            rating: 5,
+            ulasan: 'Manisnya pas, penghilang dahaga terbaik.',
+            details: 'Es Jeruk Manis, Jeruk Asli.',
+            img: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=600&h=400&q=80',
+            category: 'minuman',
+            badge: '❄️ Segar',
+            fallbackEmoji: '🧃'
+        }
+    ];
+
+    let keranjang = {};
+    let selectedPayment = 'wa';
+
+    function makeFallbackSVG(emoji, name) {
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400">
+            <rect fill="#f7f3e9" width="600" height="400"/>
+            <text x="50%" y="42%" text-anchor="middle" font-size="64">${emoji}</text>
+            <text x="50%" y="58%" text-anchor="middle" font-size="14" fill="#999" font-family="sans-serif">${name}</text>
+        </svg>`;
+        return 'data:image/svg+xml,' + encodeURIComponent(svg);
+    }
+
+    function renderMenu(filter = 'semua') {
+        const container = document.getElementById('menu-container');
+        container.innerHTML = '';
+        const filtered = filter === 'semua' ? foods : foods.filter(f => f.category === filter);
+
+        filtered.forEach((item, idx) => {
+            const starRating = '★'.repeat(item.rating) + '☆'.repeat(5 - item.rating);
+            const badgeHTML = item.badge ? `<div class="card-badge">${item.badge}</div>` : '';
+            const fallback = makeFallbackSVG(item.fallbackEmoji, item.name);
+
+            container.innerHTML += `
+                <div class="card reveal" style="transition-delay:${idx * 0.08}s">
+                    ${badgeHTML}
+                    <div class="card-img-wrap">
+                        <img src="${item.img}"
+                             class="card-img"
+                             alt="${item.name}"
+                             loading="lazy"
+                             onerror="this.onerror=null;this.src='${fallback}'">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-top-row">
+                            <div class="card-rating">${starRating} <span class="card-rating-text">${item.rating}.0</span></div>
+                        </div>
+                        <h3>${item.name}</h3>
+                        <p class="details">${item.details}</p>
+                        <div class="ulasan-singkat">"${item.ulasan}"</div>
+                        <div class="card-bottom">
+                            <div><div class="price">Rp ${item.price.toLocaleString('id-ID')}</div></div>
+                            <button class="btn-add" id="btn-add-${item.id}" onclick="tambahItem(${item.id})">+ Tambah</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        setTimeout(observeElements, 50);
+    }
+
+    function filterMenu(category, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderMenu(category);
+    }
+
+    function tambahItem(id) {
+        if (keranjang[id]) {
+            keranjang[id].qty += 1;
+        } else {
+            const produk = foods.find(f => f.id === id);
+            keranjang[id] = { ...produk, qty: 1 };
+        }
+        updateKeranjang();
+        showToast(`${foods.find(f => f.id === id).name} ditambahkan!`);
+
+        const btn = document.getElementById(`btn-add-${id}`);
+        if (btn) {
+            btn.classList.add('added');
+            btn.textContent = '✓ Ditambah';
+            setTimeout(() => { btn.classList.remove('added'); btn.textContent = '+ Tambah'; }, 800);
+        }
+
+        const badge = document.getElementById('cart-count');
+        badge.classList.remove('bounce');
+        void badge.offsetWidth;
+        badge.classList.add('bounce');
+    }
+
+    function ubahQty(id, delta) {
+        if (keranjang[id]) {
+            keranjang[id].qty += delta;
+            if (keranjang[id].qty <= 0) delete keranjang[id];
+        }
+        updateKeranjang();
+    }
+
+    function hapusItem(id) {
+        delete keranjang[id];
+        updateKeranjang();
+    }
+
+    function updateKeranjang() {
+        const list = document.getElementById('cart-items-list');
+        let totalHarga = 0, totalPorsi = 0;
+        list.innerHTML = '';
+        const items = Object.values(keranjang);
+
+        items.forEach(item => {
+            const subtotal = item.price * item.qty;
+            totalHarga += subtotal;
+            totalPorsi += item.qty;
+            list.innerHTML += `
+                <div class="cart-item">
+                    <div class="item-name-row">
+                        <strong>${item.name}</strong>
+                        <button class="btn-batal-item" onclick="hapusItem(${item.id})">Hapus</button>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <div class="qty-control">
+                            <button class="qty-btn" onclick="ubahQty(${item.id},-1)">−</button>
+                            <span style="font-weight:700;min-width:24px;text-align:center;">${item.qty}</span>
+                            <button class="qty-btn" onclick="ubahQty(${item.id},1)">+</button>
+                        </div>
+                        <strong style="color:#e67e22;">Rp ${subtotal.toLocaleString('id-ID')}</strong>
+                    </div>
+                </div>`;
+        });
+
+        if (items.length === 0) {
+            list.innerHTML = '<p style="text-align:center;color:#ccc;padding:30px 0;">Keranjang masih kosong 🍽️</p>';
+        }
+
+        document.getElementById('cart-count').innerText = totalPorsi;
+        document.getElementById('cart-total').innerText = totalHarga.toLocaleString('id-ID');
+        document.getElementById('qris-amount').innerText = 'Rp ' + totalHarga.toLocaleString('id-ID');
+    }
+
+    function selectPayment(method, el) {
+        selectedPayment = method;
+        document.querySelectorAll('.payment-opt').forEach(b => b.classList.remove('selected'));
+        el.classList.add('selected');
+
+        const qrisSection = document.getElementById('qris-section');
+        const btnWA = document.getElementById('btn-wa');
+        const btnQRIS = document.getElementById('btn-qris-confirm');
+
+        if (method === 'qris') {
+            qrisSection.classList.add('show');
+            btnWA.classList.add('hidden');
+            btnQRIS.classList.remove('hidden');
+        } else {
+            qrisSection.classList.remove('show');
+            btnWA.classList.remove('hidden');
+            btnQRIS.classList.add('hidden');
+        }
+    }
+
+    function toggleCart() {
+        const modal = document.getElementById('cart-modal');
+        modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+        document.body.style.overflow = modal.style.display === 'block' ? 'hidden' : '';
+    }
+
+    function generateWAMessage(includeQRISNote) {
+        const items = Object.values(keranjang);
+        const totalHarga = items.reduce((sum, item) => sum + item.price * item.qty, 0);
+        const totalPorsi = items.reduce((sum, item) => sum + item.qty, 0);
+        const now = new Date();
+        const tanggal = now.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        const waktu = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+
+        const paymentLabels = {
+            'wa': '💵 Bayar Cash / Tunai',
+            'cash': '💵 Bayar Cash / Tunai',
+            'qris': '📱 Sudah Dibayar via QRIS'
+        };
+
+        let teks = `╔══════════════════════════╗\n`;
+        teks += `║   🍛 NASI KUNING & GEPREK  ║\n`;
+        teks += `║      SURABAYA              ║\n`;
+        teks += `╚══════════════════════════╝\n\n`;
+
+        teks += `📋 *DETAIL PESANAN*\n`;
+        teks += `━━━━━━━━━━━━━━━━━━━━━━━\n`;
+        teks += `📅 Tanggal : ${tanggal}\n`;
+        teks += `🕐 Waktu   : ${waktu} WIB\n`;
+        teks += `📦 Jumlah  : ${totalPorsi} porsi\n\n`;
+
+        teks += `🍱 *DAFTAR MENU:*\n`;
+        teks += `━━━━━━━━━━━━━━━━━━━━━━━\n`;
+        items.forEach((item, idx) => {
+            const subtotal = item.price * item.qty;
+            const namaPendek = item.name.replace('Nasi Kuning ', 'NK ');
+            teks += `${idx + 1}. ${namaPendek}\n`;
+            teks += `   └ ${item.qty}x @ Rp ${item.price.toLocaleString('id-ID')}\n`;
+            teks += `   └ Subtotal: Rp ${subtotal.toLocaleString('id-ID')}\n`;
+        });
+
+        teks += `\n━━━━━━━━━━━━━━━━━━━━━━━\n`;
+        teks += `💰 *TOTAL BAYAR: Rp ${totalHarga.toLocaleString('id-ID')}*\n`;
+        teks += `━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+
+        teks += `💳 *METODE PEMBAYARAN:*\n`;
+        teks += `→ ${paymentLabels[selectedPayment]}\n\n`;
+
+        if (includeQRISNote) {
+            teks += `━━━━━━━━━━━━━━━━━━━━━━━\n`;
+            teks += `📸 *Saya sudah membayar via QRIS.*\n`;
+            teks += `Bukti pembayaran saya lampirkan di chat ini.\n\n`;
+        }
+
+        teks += `━━━━━━━━━━━━━━━━━━━━━━━\n`;
+        teks += `📝 *DATA PENGIRIMAN:*\n`;
+        teks += `━━━━━━━━━━━━━━━━━━━━━━━\n`;
+        teks += `👤 Nama   : \n`;
+        teks += `📞 No. HP : \n`;
+        teks += `📍 Alamat : \n`;
+        teks += `📝 Catatan: \n\n`;
+
+        teks += `_(Mohon diisi data di atas ya, kak. Terima kasih! 🙏)_`;
+
+        return encodeURIComponent(teks);
+    }
+
+    function kirimWA() {
+        const items = Object.values(keranjang);
+        if (items.length === 0) { showToast('Keranjang masih kosong!'); return; }
+        window.open(`https://wa.me/6285777461921?text=${generateWAMessage(false)}`, '_blank');
+    }
+
+    function kirimWABuktiQRIS() {
+        const items = Object.values(keranjang);
+        if (items.length === 0) { showToast('Keranjang masih kosong!'); return; }
+        window.open(`https://wa.me/6285777461921?text=${generateWAMessage(true)}`, '_blank');
+        showToast('Jangan lupa lampirkan bukti pembayaran!');
+    }
+
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        document.getElementById('toast-text').innerText = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    document.getElementById('cart-modal').addEventListener('click', function (e) {
+        if (e.target === this) toggleCart();
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            const modal = document.getElementById('cart-modal');
+            if (modal.style.display === 'block') toggleCart();
+        }
+    });
+
+    function observeElements() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
+    }
+
+    window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    renderMenu();
+    updateKeranjang();
+    observeElements();
+</script>
+</body>
+</html>
